@@ -70,7 +70,6 @@ public class EncDecFunction {
 
         // Extract Cipher.
         int cipherSize = cipherWithIVText.length - ivSize;
-        System.out.println(cipherSize);
         byte[] cipherBytes = new byte[cipherSize];
         System.arraycopy(cipherWithIVText, ivSize, cipherBytes, 0, cipherSize);
 
@@ -83,6 +82,7 @@ public class EncDecFunction {
         byte[] decrypted = cipherDecrypt.doFinal(cipherBytes);
 
         return new String(decrypted);
+
     }
 
     //ECB Encryption
