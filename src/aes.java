@@ -106,15 +106,17 @@ public class aes {
         else if (option == 3) {
             System.out.println("\n******************************************************************************************************************");
             System.out.println("Selected Function is Decryption.");
+            String plainText = FileReadWrite.ReadFile("plaintext.txt");
+            System.out.println("Plain text in the file plaintext.txt: " + plainText);
             String  cipherText = FileReadWrite.ReadFile("ciphertext.txt");
             System.out.println("Cipher text in the file ciphertext.txt: " + cipherText);
             startTime = System.nanoTime();
-            String plainText = EncDecFunction.decryptCBC(DatatypeConverter.parseHexBinary(cipherText));
+            String decryptedText = EncDecFunction.decryptCBC(DatatypeConverter.parseHexBinary(cipherText));
             endTime = System.nanoTime();
             duration = (endTime - startTime);
             double seconds = (double) duration / 1000000000.0;
-            FileReadWrite.WriteFile("result.txt", plainText);
-            System.out.println("Decrypted Text is: " + plainText);
+            FileReadWrite.WriteFile("result.txt", decryptedText);
+            System.out.println("Decrypted Text is: " + decryptedText);
             System.out.println("The time it took to run Decryption function  is: " + seconds + "Seconds");
             System.out.println("********************************************************************************************************************\n");
         }
