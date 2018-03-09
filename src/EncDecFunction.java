@@ -77,11 +77,16 @@ public class EncDecFunction {
         SecretKeySpec secretKey = getSecretKey();
 
         // Decrypt.
-        Cipher cipherDecrypt = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipherDecrypt.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
-        byte[] decrypted = cipherDecrypt.doFinal(cipherBytes);
+        try {
+            Cipher cipherDecrypt = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipherDecrypt.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
+            byte[] decrypted = cipherDecrypt.doFinal(cipherBytes);
+            return new String(decrypted);
+        }catch (Exception e){
+            return  "There was some error decrypting the file. Please check if the used key is correct";
+        }
 
-        return new String(decrypted);
+
 
     }
 

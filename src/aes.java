@@ -2,12 +2,32 @@ import javax.xml.bind.DatatypeConverter;
 import java.io.File;
 import java.util.Scanner;
 
+
 public class aes {
     //Initializing the Scanner
     static final Scanner scanner = new Scanner(System.in);
-
+    static int consoleLength;
+    public static String folderPath;
     //Main class
     public static void main(String[] args) throws Exception {
+
+
+        File f = new File("./data/key.txt");
+        if(f.exists() && !f.isDirectory()) {
+            folderPath = "./data/";
+        }
+        else
+        {
+            folderPath = "../data/";
+        }
+
+        try
+        {
+            consoleLength = Integer.parseInt(args[0]);
+        }catch (Exception e)
+        {
+            consoleLength = 150;
+        }
 
         //Printing Initial values
         ReadFiles();
@@ -41,14 +61,24 @@ public class aes {
 
     //Function to read data in all the files by using FileReadWrite class.
     static void ReadFiles(){
-        System.out.println("\n******************************************************************************************************************");
+        System.out.println();
+        printLine();
         System.out.println("Current Data in all files:");
         System.out.println("plaintext.txt : "+FileReadWrite.ReadFile("plaintext.txt"));
         System.out.println("ciphertext.txt : "+FileReadWrite.ReadFile("ciphertext.txt"));
         System.out.println("key.txt : "+FileReadWrite.ReadFile("key.txt"));
         System.out.println("iv.txt : "+FileReadWrite.ReadFile("iv.txt"));
         System.out.println("result.txt : "+FileReadWrite.ReadFile("result.txt"));
-        System.out.println("********************************************************************************************************************\n");
+        printLine();
+    }
+
+    //Print a line on console
+    static void printLine(){
+        for(int i=1;i< consoleLength;i++)
+        {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
 
@@ -71,7 +101,8 @@ public class aes {
         long duration, endTime, startTime;
         //Calling Keygen function
         if (option == 1) {
-            System.out.println("\n******************************************************************************************************************");
+            System.out.println();
+            printLine();
             System.out.println("Selected Function is KeyGen.");
             String keyText = FileReadWrite.ReadFile("key.txt");
             System.out.println("Key text in the file key.txt: " + keyText);
@@ -83,11 +114,14 @@ public class aes {
             keyText = FileReadWrite.ReadFile("key.txt");
             System.out.println("New Key text in the file key.txt: " + keyText);
             System.out.println("The time it took to run KeyGEN function  is: " + seconds + "Seconds");
-            System.out.println("********************************************************************************************************************\n");
+            printLine();
+            ReadFiles();
+
         }
         //Calling Encryption function
         else if (option == 2) {
-            System.out.println("\n******************************************************************************************************************");
+            System.out.println();
+            printLine();
             System.out.println("Selected Function is Encryption.");
             String plainText = FileReadWrite.ReadFile("plaintext.txt");
             System.out.println("Plain text in the file plaintext.txt: " + plainText);
@@ -100,11 +134,13 @@ public class aes {
             FileReadWrite.WriteFile("ciphertext.txt", encData);
             System.out.println("Encrypted Text is: " + encData);
             System.out.println("The time it took to run Encryption function  is: " + seconds + "Seconds");
-            System.out.println("********************************************************************************************************************\n");
+            printLine();
+            ReadFiles();
         }
         //Calling Decryption function
         else if (option == 3) {
-            System.out.println("\n******************************************************************************************************************");
+            System.out.println();
+            printLine();
             System.out.println("Selected Function is Decryption.");
             String plainText = FileReadWrite.ReadFile("plaintext.txt");
             System.out.println("Plain text in the file plaintext.txt: " + plainText);
@@ -118,11 +154,13 @@ public class aes {
             FileReadWrite.WriteFile("result.txt", decryptedText);
             System.out.println("Decrypted Text is: " + decryptedText);
             System.out.println("The time it took to run Decryption function  is: " + seconds + "Seconds");
-            System.out.println("********************************************************************************************************************\n");
+            printLine();
+            ReadFiles();
         }
         //CBC ECB comparison
         else if (option == 4) {
-            System.out.println("\n******************************************************************************************************************");
+            System.out.println();
+            printLine();//System.out.println("\n******************************************************************************************************************");
             System.out.println("Selected Function is comparison.");
             String plainText = FileReadWrite.ReadFile("plaintext.txt");
             System.out.println("Plain text in the file plaintext.txt: " + plainText);
@@ -135,7 +173,8 @@ public class aes {
             Encrypted = EncDecFunction.encryptECB(plainText);
             System.out.println("2nd Encrypted Text with ECB: "+ DatatypeConverter.printHexBinary(Encrypted));
             //System.out.println(EncDecFunction.decryptECB(Encrypted));
-            System.out.println("********************************************************************************************************************\n");
+            printLine();
+            ReadFiles();
         }
         //Read Current Files
         else if (option == 5) {

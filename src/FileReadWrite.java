@@ -15,24 +15,9 @@ public class FileReadWrite {
 
     static String folderPath;
 
-
-
-    static void setFolderPath(String path){
-
-        folderPath = path;
-    }
-
     static String ReadFile(String fileName)
     {
-        File f = new File("./data/key.txt");
-        if(f.exists() && !f.isDirectory()) {
-            folderPath = "./data/";
-        }
-        else
-        {
-            folderPath = "../data/";
-        }
-
+        folderPath = aes.folderPath;
         String filePath = folderPath+fileName;
         StringBuilder ReadData = new StringBuilder();
 
