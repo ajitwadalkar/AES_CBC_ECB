@@ -1,3 +1,5 @@
+#Implementation of AES algorithm in CBC and ECB mode
+
 To run the project from Linux terminal use following command
 
 javac aes.java
@@ -8,14 +10,14 @@ java aes $COLUMNS
 
 This will print the current data in the files and will give you options to choose the function as follows.
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 Current Data in all files:
 plaintext.txt : Welcome to data security and privacy .
 ciphertext.txt : 284C9FE5146EB80B1156E25E87431235EC64A27024F0962A41D06C133810E1D4CA56905469923AA6BEC3E5385A0813FD8EEA69EBF7EEFCFAA86904E0C1FD1C12
 key.txt : 91F6E712F813E399C5E473814A1C64884FC0ACAC09759D52170E291B32411A8D
 iv.txt : 396BC201A989E6A017D77B37B2D7A936
 result.txt : Welcome to data security and privacy .
--------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
 Following are the functionalities in the code, choose anyone:
 1.Generate new random Key
