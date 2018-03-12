@@ -1,10 +1,10 @@
 # Implementation of AES algorithm in CBC and ECB mode
 
-To run the project from Linux terminal use following command
-
-'javac aes.java'  
-'java aes $COLUMNS'
-
+To run the project from Linux terminal use following command  
+```
+javac aes.java  
+java aes $COLUMNS
+```
 //$COLUMS will give nice look to the borders, but can be ignored on other systems, As far as I checked that will not throw any error, but incase there is any error, please put 150 instead of $COLUMNS.
 
 
