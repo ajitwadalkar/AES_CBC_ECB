@@ -9,7 +9,7 @@ java aes $COLUMNS
 
 
 This will print the current data in the files and will give you options to choose the function as follows.
-
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Current Data in all files:
 plaintext.txt : Welcome to data security and privacy .
@@ -28,17 +28,18 @@ Following are the functionalities in the code, choose anyone:
 5.Read current files
 6.Exit
 Please choose the value in between 1,2,3,4,5 or 6
-
+```
 
 Here you will need to input the number corresponding to the function.
 once the function is executed it will print the updated status of all the files.
 once that part is done, the program will ask you if you want to re-run the program, you can select 1 to rerun it or 2 to terminate the program.
-
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Do you want to re-run the program?
 Please choose from the following.
 1. Yes
 2. No
 -------------------------------------------------------------------------------------------------------------------------------------------------
+```
 if you select 1 it will reprint the function menu and if you press 2 the program will terminate.
 
